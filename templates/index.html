@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PiMusicBox</title>
+    <style>
+        body { font-family: sans-serif; background: #f0f0f0; padding: 40px; text-align: center; }
+        input { padding: 10px; width: 60%; font-size: 16px; }
+        button { padding: 10px 20px; font-size: 16px; margin-top: 10px; }
+        .flash { margin-top: 20px; color: green; }
+    </style>
+</head>
+<body>
+    <h1>🎶 PiMusicBox</h1>
+    <form method="POST">
+        <input type="text" name="youtube_url" placeholder="Lien YouTube ici...">
+        <br>
+        <button type="submit">Envoyer</button>
+    </form>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flash">{{ messages[0] }}</div>
+        {% endif %}
+    {% endwith %}
+</body>
+</html>
