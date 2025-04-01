@@ -20,11 +20,62 @@
 - Python 3
 - `yt-dlp`, `mpv`, `flask`, `requests`, `werkzeug`
 
-### Installation des dépendances :
+---
+
+## 🔧 Installation — Étapes complètes
+
+### 1. Cloner le dépôt
 ```bash
-sudo apt install mpv
+git clone https://github.com/TON_UTILISATEUR/PiMusicBox.git
+cd PiMusicBox
+```
+
+### 2. Créer un environnement virtuel (optionnel mais recommandé)
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### 3. Installer les dépendances Python
+```bash
 pip install flask yt-dlp requests
 ```
+
+### 4. Installer `mpv` (lecteur audio)
+```bash
+sudo apt update
+sudo apt install mpv
+```
+
+### 5. Créer les dossiers nécessaires (automatique à l'exécution)
+```bash
+mkdir -p /tmp/uploads
+mkdir -p ~/musics
+```
+
+---
+
+## 🔄 Alternative : Installation avec `pipx`
+
+### Installer pipx (si ce n’est pas déjà fait)
+```bash
+sudo apt install pipx
+pipx ensurepath
+```
+
+### Installer les outils CLI isolés avec pipx
+```bash
+pipx install yt-dlp
+```
+
+### Utiliser un environnement virtuel local pour Flask (recommandé)
+```bash
+python3 -m venv venv
+source venv/bin/activate
+pip install flask requests
+```
+
+> `pipx` est pratique pour les outils CLI comme `yt-dlp`. Pour les scripts personnalisés (comme `app.py` et `receiver.py`), l’usage d’un `venv` local reste recommandé.
 
 ---
 
@@ -49,7 +100,7 @@ PiMusicBox/
 python3 receiver.py
 ```
 
-### 2. Lancer l’interface web
+### 2. Ouvrir un deuxième terminal, puis lancer l’interface web
 ```bash
 python3 app.py
 ```
@@ -63,6 +114,11 @@ Ou depuis un autre appareil :
 ```
 http://IP_DU_PI:8080
 ```
+
+### 4. Utilisation de l’interface
+- Coller un lien YouTube pour jouer la musique automatiquement
+- Ou envoyer un fichier `.mp3` local pour le lire instantanément
+- Le titre s'affiche automatiquement avant l'envoi
 
 ---
 
